@@ -17,8 +17,15 @@ from django.contrib import admin
 from django.urls import path
 
 from . import views
+from paquete import views as views_paquete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.HomePage.as_view(),name='home'),
+    path('crear_beneficio/',views_paquete.CreateBeneficio.as_view(),name='create_benefit'),
+    path('crear_paquete/',views_paquete.CreatePaquete.as_view(),name='create_package'),
+    path('asociar_paquete_beneficio/',views_paquete.CreateBeneficioPaquete.as_view(),name='join_benefit_with_package'),
+    path('lista_beneficio/',views_paquete.ListBeneficio.as_view(),name='list_benefit'),
+    path('lista_paquete/',views_paquete.ListPaquete.as_view(),name='list_package'),
+    path('lista_paquete_beneficio/',views_paquete.ListBeneficioPaquete.as_view(),name='list_benefit_with_package'),
 ]
